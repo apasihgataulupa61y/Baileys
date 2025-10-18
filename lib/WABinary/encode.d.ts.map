@@ -1,0 +1,1 @@
+{"version":3,"file":"encode.d.ts","sourceRoot":"","sources":["../../src/WABinary/encode.ts"],"names":[],"mappings":"AAEA,OAAO,KAAK,EAAE,UAAU,EAAE,uBAAuB,EAAE,MAAM,SAAS,CAAA;AAElE,eAAO,MAAM,gBAAgB,SACtB,UAAU,SACV,IAAI,CAAC,uBAAuB,EAAE,MAAM,GAAG,WAAW,CAAC,WACjD,MAAM,EAAE,KACd,MAGF,CAAA"}
