@@ -96,6 +96,10 @@ export type BaileysEventMap = {
 	'newsletter.view': { id: string; server_id: string; count: number }
 	'newsletter-participants.update': { id: string; author: string; user: string; new_role: string; action: string }
 	'newsletter-settings.update': { id: string; update: any }
+	// ...event yang sudah ada
+	command: { message: WAMessage; remoteJid: string }
+	'user.typing': { jid: string }
+	detected: { message: WAMessage; remoteJid: string }
 }
 
 export type BufferedEventData = {

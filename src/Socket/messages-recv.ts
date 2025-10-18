@@ -1127,6 +1127,24 @@ export const makeMessagesRecvSocket = (config: SocketConfig) => {
 
 						const fullMsg = proto.WebMessageInfo.fromObject(msg) as WAMessage
 						await upsertMessage(fullMsg, 'append')
+
+						// === custom event tambahan ===
+						if (remoteJid) {
+							// event command (! atau .)
+							if (fullMsg.message?.conversation?.startsWith('!') || fullMsg.message?.conversation?.startsWith('.')) {
+								ev.emit('command', { message: fullMsg, remoteJid })
+							}
+
+							// event user typing
+							if (node.tag === 'chatstate' && node.attrs?.type === 'composing') {
+								ev.emit('user.typing', { jid: remoteJid })
+							}
+
+							// event detected (pesan mengandung kata tertentu)
+							if (fullMsg.message?.conversation?.toLowerCase().includes('detect')) {
+								ev.emit('detected', { message: fullMsg, remoteJid })
+							}
+						}
 					}
 				})
 			])
